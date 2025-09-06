@@ -1,0 +1,19 @@
+{
+  "name": "excalidraw-backend",
+  "module": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch ./src/index.ts",
+    "start": "bun run ./dist/index.js",
+    "build": "bun run src/index.ts --outdir ./dist"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "socket.io": "^4.8.1"
+  }
+}
