@@ -1,4 +1,4 @@
-# excalidraw-backend
+# draw-backend
 
 To install dependencies:
 
