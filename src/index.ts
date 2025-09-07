@@ -1,6 +1,10 @@
+import { createServer } from "http";
 import { Server } from "socket.io";
 
-const io = new Server({cors: {origin: process.env.CORS_ORIGIN }});
+const server = createServer();
+const io = new Server(server, {
+  cors: { origin: process.env.CORS_ORIGIN },
+});
 
 function countInRoom(roomId: string) {
   return io.of("/").adapter.rooms.get(roomId)?.size || 0;
@@ -50,4 +54,7 @@ io.on("connection", function (socket) {
 });
 
 const port = process.env.PORT || 8081;
-io.listen(port as number);
+
+server.listen(port, () => {
+  console.log("Socket Server listening on port:", port);
+});
